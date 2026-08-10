@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Encanto | Papelaria Personalizada</title>
+  <meta name="description" content="Papelaria personalizada para festas infantis. Caixinhas, kits festa, lembrancinhas e muito mais. Cada detalhe pensado com carinho para deixar sua comemoração inesquecível.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosa: #f8a5c2;
+      --rosa-escuro: #e76f9a;
+      --coral: #ff8a65;
+      --laranja: #ffb74d;
+      --dourado: #f4c430;
+      --bege: #fdf6f0;
+      --creme: #fff9f5;
+      --marrom: #5d4037;
+      --texto: #3e2723;
+      --cinza: #6d4c41;
+      --branco: #ffffff;
+      --sombra: 0 10px 40px rgba(93, 64, 55, 0.08);
+      --sombra-forte: 0 20px 60px rgba(93, 64, 55, 0.12);
+      --radius: 20px;
+      --transicao: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--creme);
+      color: var(--texto);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 249, 245, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(248, 165, 194, 0.2);
+      transition: var(--transicao);
+    }
+
+    header.scrolled {
+      box-shadow: var(--sombra);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--texto);
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--rosa), var(--coral));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 15px rgba(248, 165, 194, 0.4);
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--cinza);
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 0.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--texto);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      transition: var(--transicao);
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--rosa);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--texto);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 4rem;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(248, 165, 194, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 183, 77, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(255, 138, 101, 0.1) 0%, transparent 60%),
+        var(--creme);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--rosa-escuro);
+      box-shadow: var(--sombra);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      color: var(--marrom);
+    }
+
+    .hero h1 .destaque {
+      background: linear-gradient(135deg, var(--rosa-escuro), var(--coral));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--cinza);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.95rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: var(--transicao);
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--rosa-escuro), var(--coral));
+      color: white;
+      box-shadow: 0 8px 25px rgba(231, 111, 154, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(231, 111, 154, 0.45);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--texto);
+      border: 2px solid rgba(248, 165, 194, 0.4);
+      margin-left: 0.8rem;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--rosa);
+      background: rgba(248, 165, 194, 0.1);
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    /* Decorative elements */
+    .deco {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .deco-1 { width: 80px; height: 80px; background: var(--rosa); top: 15%; left: 8%; animation: float 6s ease-in-out infinite; }
+    .deco-2 { width: 50px; height: 50px; background: var(--laranja); top: 25%; right: 12%; animation: float 7s ease-in-out infinite 1s; }
+    .deco-3 { width: 35px; height: 35px; background: var(--coral); bottom: 20%; left: 15%; animation: float 5s ease-in-out infinite 0.5s; }
+    .deco-4 { width: 60px; height: 60px; background: var(--dourado); bottom: 30%; right: 8%; animation: float 8s ease-in-out infinite 1.5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header .label {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--rosa-escuro);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      color: var(--marrom);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-header p {
+      color: var(--cinza);
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    /* ===== SOBRE ===== */
+    .sobre {
+      background: white;
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .sobre-texto h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--marrom);
+    }
+
+    .sobre-texto p {
+      color: var(--cinza);
+      margin-bottom: 1rem;
+    }
+
+    .sobre-destaques {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .destaque-item {
+      background: var(--bege);
+      padding: 1rem;
+      border-radius: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+    }
+
+    .destaque-item .icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .destaque-item strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .destaque-item span {
+      font-size: 0.8rem;
+      color: var(--cinza);
+    }
+
+    .sobre-card {
+      background: linear-gradient(145deg, var(--rosa), var(--coral));
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      color: white;
+      box-shadow: var(--sombra-forte);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sobre-card::before {
+      content: '✨';
+      position: absolute;
+      font-size: 8rem;
+      opacity: 0.15;
+      right: -20px;
+      bottom: -30px;
+    }
+
+    .sobre-card h4 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .sobre-card p {
+      opacity: 0.95;
+      font-size: 0.95rem;
+    }
+
+    .sobre-card .meta {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* ===== PRODUTOS ===== */
+    .produtos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .produto-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: var(--transicao);
+    }
+
+    .produto-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--sombra-forte);
+    }
+
+    .produto-img {
+      height: 180px;
+      background: linear-gradient(135deg, #fce4ec, #fff3e0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+    }
+
+    .produto-img .badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--rosa-escuro);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 50px;
+    }
+
+    .produto-body {
+      padding: 1.5rem;
+    }
+
+    .produto-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--marrom);
+    }
+
+    .produto-body p {
+      font-size: 0.9rem;
+      color: var(--cinza);
+      margin-bottom: 1rem;
+    }
+
+    .preco {
+      font-weight: 700;
+      color: var(--rosa-escuro);
+      font-size: 1.1rem;
+    }
+
+    .preco small {
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: var(--cinza);
+    }
+
+    /* Kits highlight */
+    .kits-section {
+      background: linear-gradient(180deg, var(--bege) 0%, white 100%);
+      padding: 4rem 1.5rem;
+      border-radius: 30px;
+      margin-top: 3rem;
+    }
+
+    .kits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .kit-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: var(--sombra);
+      border: 2px solid transparent;
+      transition: var(--transicao);
+    }
+
+    .kit-card:hover {
+      border-color: var(--rosa);
+      transform: scale(1.03);
+    }
+
+    .kit-card .kit-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--rosa-escuro);
+      margin-bottom: 0.3rem;
+    }
+
+    .kit-card .kit-itens {
+      font-size: 0.85rem;
+      color: var(--cinza);
+      margin-bottom: 0.8rem;
+    }
+
+    .kit-card .kit-preco {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--marrom);
+    }
+
+    /* ===== GALERIA ===== */
+    .galeria {
+      background: white;
+    }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .galeria-item {
+      aspect-ratio: 1;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fce4ec 0%, #e8f5e9 50%, #fff3e0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: var(--sombra);
+      transition: var(--transicao);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .galeria-item:hover {
+      transform: scale(1.04);
+    }
+
+    .galeria-item span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--cinza);
+      margin-top: 0.5rem;
+      text-align: center;
+      padding: 0 0.5rem;
+    }
+
+    /* ===== FORMULÁRIO ===== */
+    .encomenda {
+      background: 
+        radial-gradient(circle at 0% 100%, rgba(248, 165, 194, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 100% 0%, rgba(255, 183, 77, 0.12) 0%, transparent 50%),
+        var(--creme);
+    }
+
+    .form-wrapper {
+      background: white;
+      border-radius: 24px;
+      box-shadow: var(--sombra-forte);
+      overflow: hidden;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-header {
+      background: linear-gradient(135deg, var(--rosa-escuro), var(--coral));
+      color: white;
+      padding: 2rem 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .form-header h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-header p {
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+
+    .form-body {
+      padding: 2rem;
+    }
+
+    .form-section {
+      margin-bottom: 2.2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(248, 165, 194, 0.25);
+    }
+
+    .form-section:last-of-type {
+      border-bottom: none;
+      margin-bottom: 1rem;
+    }
+
+    .form-section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .form-section-title .num {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--rosa), var(--coral));
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .form-section-title h3 {
+      font-size: 1.15rem;
+      color: var(--marrom);
+    }
+
+    .form-group {
+      margin-bottom: 1.3rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-bottom: 0.45rem;
+      color: var(--texto);
+    }
+
+    .form-group label .obrigatorio {
+      color: var(--rosa-escuro);
+    }
+
+    .form-group .ajuda {
+      font-size: 0.8rem;
+      color: var(--cinza);
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 2px solid #f0e6e0;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transicao);
+      background: var(--bege);
+      color: var(--texto);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--rosa);
+      background: white;
+      box-shadow: 0 0 0 4px rgba(248, 165, 194, 0.2);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .chip {
+      background: var(--bege);
+      border: 2px solid #f0e6e0;
+      padding: 0.4rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transicao);
+      user-select: none;
+    }
+
+    .chip:hover,
+    .chip.selected {
+      background: var(--rosa);
+      border-color: var(--rosa);
+      color: white;
+    }
+
+    .exemplo-box {
+      background: #fff8f0;
+      border-left: 4px solid var(--laranja);
+      padding: 0.9rem 1rem;
+      border-radius: 0 12px 12px 0;
+      font-size: 0.85rem;
+      color: var(--cinza);
+      margin-top: 0.5rem;
+    }
+
+    .exemplo-box strong {
+      color: var(--texto);
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.6rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bege);
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transicao);
+      border: 2px solid transparent;
+    }
+
+    .checkbox-item:hover {
+      border-color: var(--rosa);
+    }
+
+    .checkbox-item input {
+      width: auto;
+      accent-color: var(--rosa-escuro);
+    }
+
+    .form-footer {
+      background: var(--bege);
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .form-footer .nota {
+      font-size: 0.85rem;
+      color: var(--cinza);
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--rosa-escuro), var(--coral));
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transicao);
+      box-shadow: 0 8px 25px rgba(231, 111, 154, 0.3);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(231, 111, 154, 0.4);
+    }
+
+    /* ===== CONTATO / FOOTER ===== */
+    footer {
+      background: var(--marrom);
+      color: white;
+      padding: 4rem 1.5rem 2rem;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .logo-text {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      opacity: 0.8;
+      font-size: 0.95rem;
+      max-width: 300px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      color: var(--rosa);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-col a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: var(--transicao);
+    }
+
+    .footer-col a:hover {
+      color: var(--rosa);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 900px) {
+      .sobre-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: var(--sombra);
+      }
+
+      nav ul.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-secondary {
+        margin-left: 0;
+      }
+
+      .sobre-destaques {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Success message */
+    .sucesso {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .sucesso.show {
+      display: block;
+    }
+
+    .sucesso .icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .sucesso h3 {
+      font-size: 1.6rem;
+      color: var(--marrom);
+      margin-bottom: 0.8rem;
+    }
+
+    .sucesso p {
+      color: var(--cinza);
+      max-width: 400px;
+      margin: 0 auto 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="nav-container">
+      <a href="#inicio" class="logo">
+        <div class="logo-icon">🎀</div>
+        <div class="logo-text">
+          Nosso Encanto
+          <span>papelaria personalizada</span>
+        </div>
+      </a>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#encomendar">Encomendar</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="deco deco-1"></div>
+    <div class="deco deco-2"></div>
+    <div class="deco deco-3"></div>
+    <div class="deco deco-4"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✨ Cada detalhe feito com amor</div>
+      <h1>Papelaria que <span class="destaque">encanta</span><br>a sua festa</h1>
+      <p>Caixinhas, kits festa, lembrancinhas e personalizados únicos, criados especialmente para deixar a comemoração do seu pequeno ainda mais mágica.</p>
+      <div class="hero-btns">
+        <a href="#encomendar" class="btn btn-primary">Fazer encomenda →</a>
+        <a href="#produtos" class="btn btn-secondary">Ver produtos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">Nossa história</div>
+        <h2>Sobre o Nosso Encanto</h2>
+        <p>Transformamos ideias em papelaria personalizada cheia de carinho e detalhes especiais.</p>
+      </div>
+      <div class="sobre-grid">
+        <div class="sobre-texto">
+          <h3>Cada festa merece ser única</h3>
+          <p>Somos apaixonados por criar personalizados que contam a história da sua comemoração. Trabalhamos com total atenção aos detalhes: desde a escolha das cores até os personagens e elementos que você ama.</p>
+          <p>Todos os produtos são produzidos em papel offset 180g, com várias camadinhas, e enviamos a arte para sua aprovação antes de iniciar a produção — assim fica exatamente do seu jeitinho!</p>
+          <div class="sobre-destaques">
+            <div class="destaque-item">
+              <div class="icon">🎨</div>
+              <div>
+                <strong>Arte exclusiva</strong>
+                <span>Criada sob medida para o tema</span>
+              </div>
+            </div>
+            <div class="destaque-item">
+              <div class="icon">📦</div>
+              <div>
+                <strong>Qualidade premium</strong>
+                <span>Papel 180g + várias camadas</span>
+              </div>
+            </div>
+            <div class="destaque-item">
+              <div class="icon">✅</div>
+              <div>
+                <strong>Aprovação prévia</strong>
+                <span>Você vê a arte antes de produzir</span>
+              </div>
+            </div>
+            <div class="destaque-item">
+              <div class="icon">🌈</div>
+              <div>
+                <strong>Qualquer tema</strong>
+                <span>Do clássico ao mais criativo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sobre-card">
+          <h4>Nosso compromisso</h4>
+          <p>Oferecer o melhor e mais completo atendimento e serviço. Cada personalizado é pensado exclusivamente para a sua festa, com a singularidade e a caracterização que ela merece.</p>
+          <div class="meta">
+            💝 Produzimos a partir de 18 caixinhas<br>
+            📅 Pedidos com até 1 mês de antecedência<br>
+            🚚 Frete sob consulta
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section id="produtos">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">O que fazemos</div>
+        <h2>Nossos produtos</h2>
+        <p>Caixinhas clássicas e especiais, kits prontos, lembrancinhas e muito mais — tudo personalizado no tema da sua festa.</p>
+      </div>
+
+      <div class="produtos-grid">
+        <div class="produto-card">
+          <div class="produto-img">
+            🎁
+            <span class="badge">A partir de R$ 9,50</span>
+          </div>
+          <div class="produto-body">
+            <h3>Caixinhas Clássicas</h3>
+            <p>Cone, Soft, Milk, Bag, Redonda, KitKat, Formosa, Mala, Diamante e dezenas de outros modelos lindos.</p>
+            <div class="preco">R$ 9,50 <small>cada</small></div>
+          </div>
+        </div>
+        <div class="produto-card">
+          <div class="produto-img">
+            ✨
+            <span class="badge">A partir de R$ 16,90</span>
+          </div>
+          <div class="produto-body">
+            <h3>Caixinhas Especiais</h3>
+            <p>Royal, Milk Shaker, Foguete, Câmera, Celeiro, Vulcão, Cubo Acetato, Letra 3D e muitas outras surpresas.</p>
+            <div class="preco">R$ 16,90 <small>cada</small></div>
+          </div>
+        </div>
+        <div class="produto-card">
+          <div class="produto-img">
+            🎉
+          </div>
+          <div class="produto-body">
+            <h3>Kits Festa</h3>
+            <p>Pacotes prontos com 18 a 80 itens, misturando caixinhas clássicas e especiais para facilitar sua escolha.</p>
+            <div class="preco">A partir de R$ 170</div>
+          </div>
+        </div>
+        <div class="produto-card">
+          <div class="produto-img">
+            💝
+          </div>
+          <div class="produto-body">
+            <h3>Lembrancinhas</h3>
+            <p>Saquinhos, livrinhos de colorir, maletinhas com massinha, relógio digital, lousa mágica, tubolatas e mais.</p>
+            <div class="preco">A partir de R$ 12/un</div>
+          </div>
+        </div>
+        <div class="produto-card">
+          <div class="produto-img">
+            🧁
+          </div>
+          <div class="produto-body">
+            <h3>Outros itens</h3>
+            <p>Forminhas, tags, plaquinhas, sacolinhas, porta-bis, topo de bolo, quadrinhos e bandeirolas.</p>
+            <div class="preco">Diversos valores</div>
+          </div>
+        </div>
+        <div class="produto-card">
+          <div class="produto-img">
+            🌸
+          </div>
+          <div class="produto-body">
+            <h3>Centros de mesa</h3>
+            <p>Sextavada, Acetato e Letra 3D — perfeitos para complementar a decoração da mesa principal.</p>
+            <div class="preco">A partir de R$ 14</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kits detalhados -->
+      <div class="kits-section">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <h2 style="font-size: 1.8rem;">Pacotes Kit Festa</h2>
+          <p>Escolha o kit ideal para o tamanho da sua festa</p>
+        </div>
+        <div class="kits-grid">
+          <div class="kit-card">
+            <div class="kit-num">Kit 1</div>
+            <div class="kit-itens">18 itens · 3 modelos<br>18 caixinhas clássicas</div>
+            <div class="kit-preco">R$ 170</div>
+          </div>
+          <div class="kit-card">
+            <div class="kit-num">Kit 2</div>
+            <div class="kit-itens">36 itens · 4 modelos<br>36 caixinhas clássicas</div>
+            <div class="kit-preco">R$ 340</div>
+          </div>
+          <div class="kit-card">
+            <div class="kit-num">Kit 3</div>
+            <div class="kit-itens">48 itens · 6 modelos<br>36 clássicas + 12 especiais</div>
+            <div class="kit-preco">R$ 540</div>
+          </div>
+          <div class="kit-card">
+            <div class="kit-num">Kit 4</div>
+            <div class="kit-itens">60 itens · 7 modelos<br>36 clássicas + 24 especiais</div>
+            <div class="kit-preco">R$ 740</div>
+          </div>
+          <div class="kit-card">
+            <div class="kit-num">Kit 5</div>
+            <div class="kit-itens">80 itens · 10 modelos<br>56 clássicas + 24 especiais</div>
+            <div class="kit-preco">R$ 930</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="galeria" id="galeria">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">Inspiração</div>
+        <h2>Alguns dos nossos trabalhos</h2>
+        <p>Cada peça é única e criada especialmente para a festa do cliente.</p>
+      </div>
+      <div class="galeria-grid">
+        <div class="galeria-item">🦄<span>Unicórnio</span></div>
+        <div class="galeria-item">🦕<span>Dinossauros</span></div>
+        <div class="galeria-item">👸<span>Princesas</span></div>
+        <div class="galeria-item">🚀<span>Espaço / Foguete</span></div>
+        <div class="galeria-item">🐶<span>Patrulha Canina</span></div>
+        <div class="galeria-item">🦁<span>Safari</span></div>
+        <div class="galeria-item">🦸<span>Super-Heróis</span></div>
+        <div class="galeria-item">🐷<span>Peppa Pig</span></div>
+        <div class="galeria-item">🚗<span>Carros</span></div>
+        <div class="galeria-item">🌊<span>Fundo do Mar</span></div>
+        <div class="galeria-item">🎂<span>Fazendinha</span></div>
+        <div class="galeria-item">⭐<span>E muitos outros!</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO / QUESTIONÁRIO -->
+  <section class="encomenda" id="encomendar">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">Vamos criar juntos</div>
+        <h2>Questionário de produção</h2>
+        <p>Preencha com calma. Quanto mais detalhes você nos der, mais perfeita ficará a arte da sua festa!</p>
+      </div>
+
+      <div class="form-wrapper">
+        <div class="form-header">
+          <h2>✨ Formulário de Encomenda</h2>
+          <p>Todas as informações ajudam nossa equipe a criar algo especial para você</p>
+        </div>
+
+        <form id="form-encomenda" onsubmit="return enviarFormulario(event)">
+          <div class="form-body" id="form-body">
+
+            <!-- SEÇÃO 1 -->
+            <div class="form-section">
+              <div class="form-section-title">
+                <div class="num">1</div>
+                <h3>Dados do aniversariante e da festa</h3>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Nome do aniversariante <span class="obrigatorio">*</span></label>
+                  <div class="ajuda">Escreva exatamente como deseja que apareça nas artes</div>
+                  <input type="text" name="nome" required placeholder="Ex: Ana Clara, João Pedro, Aninha...">
+                </div>
+                <div class="form-group">
+                  <label>Idade <span class="obrigatorio">*</span></label>
+                  <input type="text" name="idade" required placeholder="Ex: 5 anos, 1 aninho, 10">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Data da festa</label>
+                  <input type="date" name="data_festa">
+                </div>
+                <div class="form-group">
+                  <label>Tema principal da festa <span class="obrigatorio">*</span></label>
+                  <input type="text" name="tema" required placeholder="Ex: Frozen, Dinossauros, Safari...">
+                </div>
+              </div>
+
+              <div class="exemplo-box">
+                <strong>Exemplos de temas populares:</strong> Unicórnio, Princesas Disney, Patrulha Canina, Fazendinha, Super-Heróis, Fundo do Mar, Espaço Sideral, Carros, Peppa Pig, Mickey e Minnie, Safari, Dinossauros, Borboletas, Arco-íris...
+              </div>
+            </div>
+
+            <!-- SEÇÃO 2 -->
+            <div class="form-section">
+              <div class="form-section-title">
+                <div class="num">2</div>
+                <h3>Estilo visual e cores</h3>
+              </div>
+
+              <div class="form-group">
+                <label>Paleta de cores da decoração <span class="obrigatorio">*</span></label>
+                <div class="ajuda">Descreva as cores principais ou o clima desejado</div>
+                <input type="text" name="cores" required placeholder="Ex: Rosa bebê, branco e dourado">
+                <div class="chips" id="chips-cores">
+                  <span class="chip" data-value="Rosa, branco e dourado">Rosa + Dourado</span>
+                  <span class="chip" data-value="Azul, branco e prata">Azul + Prata</span>
+                  <span class="chip" data-value="Verde, amarelo e laranja (tons vivos)">Safari / Tropical</span>
+                  <span class="chip" data-value="Tons pastéis (rosa, lilás, mentá)">Pastéis</span>
+                  <span class="chip" data-value="Vermelho, azul e amarelo (vibrante)">Vibrante</span>
+                  <span class="chip" data-value="Preto, dourado e branco">Elegante</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Personagens e elementos que gostaria na arte <span class="obrigatorio">*</span></label>
+                <div class="ajuda">Liste os personagens, objetos ou símbolos importantes</div>
+                <textarea name="elementos" required placeholder="Ex: Elsa, Olaf, flocos de neve e um castelo de gelo&#10;Ex: Mickey Mouse, estrelas, balões e orelhinhas&#10;Ex: T-Rex, Triceratops, folhas de palmeira e vulcão"></textarea>
+                <div class="exemplo-box">
+                  <strong>Dica:</strong> Quanto mais específico, melhor! Se quiser que algum personagem apareça mais de uma vez ou em destaque, mencione.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Preferência de fundos / backgrounds</label>
+                <div class="ajuda">Escolha uma ou mais opções (ou deixe em branco para seguirmos o tema)</div>
+                <div class="checkbox-group">
+                  <label class="checkbox-item"><input type="checkbox" name="fundo" value="Poá (bolinhas)"> Poá (bolinhas)</label>
+                  <label class="checkbox-item"><input type="checkbox" name="fundo" value="Listras"> Listras</label>
+                  <label class="checkbox-item"><input type="checkbox" name="fundo" value="Floral"> Floral</label>
+                  <label class="checkbox-item"><input type="checkbox" name="fundo" value="Aquarela"> Aquarela</label>
+                  <label class="checkbox-item"><input type="checkbox" name="fundo" value="Sólido / liso"> Sólido / liso</label>
+                  <label class="checkbox-item"><input type="checkbox" name="fundo" value="Geométrico"> Geométrico</label>
+                  <label class="checkbox-item"><input type="checkbox" name="fundo" value="De acordo com o tema"> De acordo com o tema</label>
+                  <label class="checkbox-item"><input type="checkbox" name="fundo" value="Outro"> Outro (descreva abaixo)</label>
+                </div>
+                <input type="text" name="fundo_outro" placeholder="Se escolheu 'Outro', descreva aqui..." style="margin-top: 0.8rem;">
+              </div>
+            </div>
+
+            <!-- SEÇÃO 3 -->
+            <div class="form-section">
+              <div class="form-section-title">
+                <div class="num">3</div>
+                <h3>Detalhes extras e inspirações</h3>
+              </div>
+
+              <div class="form-group">
+                <label>Outros detalhes que gostaria na arte</label>
+                <div class="ajuda">Frases especiais, elementos extras, preferências ou restrições</div>
+                <textarea name="detalhes" placeholder="Ex: Incluir a frase 'Minha festa mágica'&#10;Ex: Adicionar borboletas e estrelas douradas&#10;Ex: Evitar cores muito escuras&#10;Ex: Quero o nome em letra cursiva"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Fotos de inspiração</label>
+                <div class="ajuda">Você poderá enviar fotos de referência pelo WhatsApp após o envio deste formulário. Usaremos apenas como inspiração.</div>
+                <div class="exemplo-box">
+                  💡 <strong>Dica:</strong> Prints de Pinterest, fotos de festas que você gostou ou referências de cores ajudam muito a gente a acertar o estilo!
+                </div>
+              </div>
+            </div>
+
+            <!-- SEÇÃO 4 -->
+            <div class="form-section">
+              <div class="form-section-title">
+                <div class="num">4</div>
+                <h3>Produtos de interesse</h3>
+              </div>
+
+              <div class="form-group">
+                <label>O que você gostaria de encomendar?</label>
+                <div class="checkbox-group">
+                  <label class="checkbox-item"><input type="checkbox" name="produto" value="Kit Festa"> Kit Festa</label>
+                  <label class="checkbox-item"><input type="checkbox" name="produto" value="Caixinhas avulsas"> Caixinhas avulsas</label>
+                  <label class="checkbox-item"><input type="checkbox" name="produto" value="Lembrancinhas"> Lembrancinhas</label>
+                  <label class="checkbox-item"><input type="checkbox" name="produto" value="Topo de bolo"> Topo de bolo</label>
+                  <label class="checkbox-item"><input type="checkbox" name="produto" value="Centros de mesa"> Centros de mesa</label>
+                  <label class="checkbox-item"><input type="checkbox" name="produto" value="Bandeirola / Quadrinho"> Bandeirola / Quadrinho</label>
+                  <label class="checkbox-item"><input type="checkbox" name="produto" value="Outros"> Outros itens</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Quantidade aproximada ou kit desejado</label>
+                <input type="text" name="quantidade" placeholder="Ex: Kit 3 (48 itens) ou cerca de 40 caixinhas">
+              </div>
+
+              <div class="form-group">
+                <label>Observações sobre produtos</label>
+                <textarea name="obs_produtos" placeholder="Ex: Prefiro os modelos Milk, Cone e Bag. Gostaria de incluir algumas caixas especiais tipo Foguete."></textarea>
+              </div>
+            </div>
+
+            <!-- SEÇÃO 5 -->
+            <div class="form-section">
+              <div class="form-section-title">
+                <div class="num">5</div>
+                <h3>Seus dados de contato</h3>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Seu nome <span class="obrigatorio">*</span></label>
+                  <input type="text" name="cliente" required placeholder="Como podemos te chamar?">
+                </div>
+                <div class="form-group">
+                  <label>WhatsApp <span class="obrigatorio">*</span></label>
+                  <input type="tel" name="whatsapp" required placeholder="(11) 99999-9999">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" name="email" placeholder="seu@email.com">
+              </div>
+
+              <div class="form-group">
+                <label>Cidade / Estado</label>
+                <input type="text" name="cidade" placeholder="Ex: São Paulo - SP">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-footer">
+            <div class="nota">
+              * Campos obrigatórios<br>
+              Após o envio, entraremos em contato pelo WhatsApp para alinhar os detalhes e receber inspirações.
+            </div>
+            <button type="submit" class="btn-submit">Enviar questionário ✨</button>
+          </div>
+        </form>
+
+        <!-- Mensagem de sucesso -->
+        <div class="sucesso" id="sucesso">
+          <div class="icon">🎉</div>
+          <h3>Questionário enviado com sucesso!</h3>
+          <p>Obrigada pelas informações! Em breve entraremos em contato pelo WhatsApp para dar continuidade ao seu pedido e receber eventuais fotos de inspiração.</p>
+          <a href="#inicio" class="btn btn-primary" onclick="resetarForm()">Voltar ao início</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text" style="color:white; font-size:1.4rem;">
+          Nosso Encanto
+          <span style="color:rgba(255,255,255,0.7);">papelaria personalizada</span>
+        </div>
+        <p>Transformando ideias em personalizados cheios de carinho e detalhes especiais para a festa do seu pequeno.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#encomendar">Encomendar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informações</h4>
+        <ul>
+          <li>Produção a partir de 18 caixinhas</li>
+          <li>Pedidos com até 1 mês de antecedência</li>
+          <li>Arte enviada para aprovação</li>
+          <li>Frete sob consulta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Nosso Encanto Papelaria Personalizada · Feito com 💕
+    </div>
+  </footer>
+
+  <script>
+    // Menu mobile
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('nav-menu');
+    toggle.addEventListener('click', () => menu.classList.toggle('open'));
+
+    // Header scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Chips de cores
+    document.querySelectorAll('#chips-cores .chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('#chips-cores .chip').forEach(c => c.classList.remove('selected'));
+        chip.classList.add('selected');
+        document.querySelector('input[name="cores"]').value = chip.dataset.value;
+      });
+    });
+
+    // Enviar formulário (demo)
+    function enviarFormulario(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      
+      // Coletar checkboxes
+      const fundos = [];
+      form.querySelectorAll('input[name="fundo"]:checked').forEach(cb => fundos.push(cb.value));
+      const produtos = [];
+      form.querySelectorAll('input[name="produto"]:checked').forEach(cb => produtos.push(cb.value));
+
+      // Montar resumo (para demo)
+      let resumo = '=== NOVO QUESTIONÁRIO - NOSSO ENCANTO ===\n\n';
+      resumo += `Nome aniversariante: ${data.get('nome')}\n`;
+      resumo += `Idade: ${data.get('idade')}\n`;
+      resumo += `Data festa: ${data.get('data_festa') || 'Não informada'}\n`;
+      resumo += `Tema: ${data.get('tema')}\n`;
+      resumo += `Cores: ${data.get('cores')}\n`;
+      resumo += `Elementos: ${data.get('elementos')}\n`;
+      resumo += `Fundos: ${fundos.join(', ') || 'Não especificados'}\n`;
+      if (data.get('fundo_outro')) resumo += `Fundo outro: ${data.get('fundo_outro')}\n`;
+      resumo += `Detalhes: ${data.get('detalhes') || '-'}\n`;
+      resumo += `Produtos: ${produtos.join(', ') || 'Não especificados'}\n`;
+      resumo += `Quantidade: ${data.get('quantidade') || '-'}\n`;
+      resumo += `Obs produtos: ${data.get('obs_produtos') || '-'}\n\n`;
+      resumo += `Cliente: ${data.get('cliente')}\n`;
+      resumo += `WhatsApp: ${data.get('whatsapp')}\n`;
+      resumo += `Email: ${data.get('email') || '-'}\n`;
+      resumo += `Cidade: ${data.get('cidade') || '-'}\n`;
+
+      console.log(resumo);
+      
+      // Em produção: enviar para WhatsApp, email ou backend
+      // Exemplo WhatsApp (descomente e ajuste o número):
+      // const texto = encodeURIComponent(resumo);
+      // window.open(`https://wa.me/5511999999999?text=${texto}`, '_blank');
+
+      // Mostrar sucesso
+      document.getElementById('form-body').style.display = 'none';
+      document.querySelector('.form-footer').style.display = 'none';
+      document.getElementById('sucesso').classList.add('show');
+      document.getElementById('sucesso').scrollIntoView({ behavior: 'smooth' });
+
+      return false;
+    }
+
+    function resetarForm() {
+      document.getElementById('form-encomenda').reset();
+      document.getElementById('form-body').style.display = 'block';
+      document.querySelector('.form-footer').style.display = 'flex';
+      document.getElementById('sucesso').classList.remove('show');
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+    }
+
+    // Fechar menu ao clicar em link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => menu.classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
